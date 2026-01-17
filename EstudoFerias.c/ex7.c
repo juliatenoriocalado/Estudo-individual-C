@@ -3,19 +3,11 @@ int main(){
     
     int NumVertices, ponto1, ponto2, opcao;
 
-    while true{
+    printf("");
+    scanf("%d", &NumVertices);
 
-        printf("Digite o número de vértices do polígono convexo: ");
-        scanf("%d", &NumVertices);
-
-        (NumVertices >= 3 and NumVertices <= 100000)
-            break;
-        }else{
-            printf("Número inválido, digite novamente [número entre 3 e 10^5]: ");
-        }continue;
-    
-    printf("Digite dois pontos [vértices] fixos no polígono: ");
-    scanf("%d, %d", &ponto1, &ponto2);
+    printf("");
+    scanf("%d, %d", &pontoA, &pontoB);
 
     for (i=1; i<= NumVertices; i++){
 
@@ -32,5 +24,6 @@ int main(){
         
     }
 
+    //Muito difícil, pulei POR ENQUANTO.
     return 0;
 }
