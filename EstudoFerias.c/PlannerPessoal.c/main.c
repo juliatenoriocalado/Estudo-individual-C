@@ -147,8 +147,6 @@ void Estatisticas(){
 
     if (total > 0){
 
-        //media = (TarefasFeitas / total) * 100.0; ERRO (INTEIRO/INTEIRO = FLOAT) - forçar antes
-
         media = (TarefasFeitas * 100.0) / total;
         
         printf("\n----------|| Estatísticas ||----------\n");
