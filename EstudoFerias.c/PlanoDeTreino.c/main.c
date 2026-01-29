@@ -1,17 +1,37 @@
 #include <stdio.h>
+#include <string.h>
+#define TabelaDeExercicios 8
 
-void GeradorDeTreino(){
+struct Exercicio{
 
-    char nome;
-    int ModoDeTreino, VolumeSemanal;
-    int nivel, genero;
+    char nome[50];
+    int grupomuscular;
+    int nivel;
+    int estilo;
+    int genero;
+
+}; //Struch padrão precisa de ; no final
+
+struct Exercicio Exercicios [TabelaDeExercicios] = {
+    {"Agachamento Livre", }
+}
+
+void ColetaDeDados(){
+
+    char nome[50];
+    int EstiloDeTreino, VolumeSemanal; //Estilo de treino: realizado em casa ou na academia 
+    int Nivel, Genero;
+    int GrupoMuscular;
+    int VolumeTreino;
+    int QuantidadeDeExercicios;
 
     printf("Para montarmos o treino ideal, precisa-se de algumas informações básicas, vamos começar? :)\n");
 
     printf("Responda objetivamente:\n");
     printf("Como devemos te chamar?\n");
-    fgets(nome, 50, stdin); 
-    
+    getchar();
+    fgets(nome, 50, stdin);
+
     //Scanf não serve para string, então usamos fgets, onde colocamos o nome da variável, o tamanho e o padrão de leitura (teclado = stdin). 
     //Lê a string até o ENTER
 
@@ -19,7 +39,7 @@ void GeradorDeTreino(){
     printf("|1| - Caseiro\n");
     printf("|2| - Academia\n");
     printf("Opção: \n");
-    scanf("%d", &ModoDeTreino);
+    scanf("%d", &EstiloDeTreino);
 
     printf("Você deseja praticar quantas vezes por semana?\n");
     printf("[De 1 a 2x por semana]\n");
@@ -33,14 +53,21 @@ void GeradorDeTreino(){
     printf("|1| - Iniciante, tenho nenhum ou pouco conhecimento sobre treinamento.\n");
     printf("|2| - Intermediário, tenho algum conhecimento sobre treinamento.\n");
     printf("|3| - Avançado, possuo conhecimento e familiaridade com treinamento.\n");
-    scanf("%d", &nivel);
+    scanf("%d", &Nivel);
 
     printf("Você deseja um treino que se enquadre mais como feminino ou masculino?\n");
     printf("|1| - Feminino\n");
     printf("|2| - Masculino\n");
     printf("Opção: \n");
-    scanf("%d", &genero);
+    scanf("%d", &Genero);
     
+    printf("Por fim, mas não menos importante...\n");
+    printf("Qual estilo de treino você prefere?\n");
+    printf("|1| - Low Volume (Mais carga, menos exercícios)\n");
+    printf("|2| - High Volume (Menos carga, mais exercícios)\n");
+    printf("Opção: \n");
+    scanf("%d", &VolumeTreino);
+
 }
 
 void VisualizarTreino();
@@ -66,7 +93,7 @@ int main(){
 
             case 1:
                 printf("Preparando tudo para gerar um novo treino...\n");
-                GeradorDeTreino();
+                ColetaDeDados();
                 break;
             
             case 2:
