@@ -1,20 +1,93 @@
 #include <stdio.h>
 #include <string.h>
-#define TabelaDeExercicios 8
 
-struct Exercicio{
+#define QUADRICEPS 1
+#define POSTERIORES 2
+#define PANTURRILHAS 3
+#define BICEPS 4
+#define TRICEPS 5
+#define PEITO 6
+#define DORSAIS 7
+#define OMBROS 8
+#define ABDOMEN 9
+#define GLUTEO 10
+
+#define INICIANTE 1
+#define INTERMEDIARIO 2
+#define AVANCADO 3
+#define PADRAO 4
+
+#define CASEIRO 1
+#define ACADEMIA 2
+#define FLEXIVEL 3
+
+#define FEMININO 1
+#define MASCULINO 2
+#define GERAL 3
+
+typedef struct Exercicio {
 
     char nome[50];
     int grupomuscular;
-    int nivel;
+    int nivelMinimo;
     int estilo;
     int genero;
+    int volume;
 
-}; //Struch padrão precisa de ; no final
+} Exercicio ; //Struch padrão precisa de ; no final
 
-struct Exercicio Exercicios [TabelaDeExercicios] = {
-    {"Agachamento Livre", }
-}
+Exercicio Exercicios [] = {
+
+    {"Agachamento Livre", INFERIORES, PADRAO, FLEXIVEL, GERAL},
+    {"Cadeira Extensora", QUADRICEPS, PADRAO, ACADEMIA, GERAL},
+    {"Cadeira Flexora", POSTERIORES, PADRAO, ACADEMIA, GERAL},
+    {"Mesa Extensora", POSTERIORES, INTERMEDIARIO, ACADEMIA, GERAL},
+    {"Agachamento Hack", INFERIORES, AVANCADO, ACADEMIA, GERAL},
+    {"Agachamento Sumô", GLUTEO, PADRAO, FLEXIVEL, FEMININO},
+    {"Agachamento Búlgaro", GLUTEO, AVANCADO, FLEXIVEL, FEMININO},
+    {"Afundo", INFERIORES, INTERMEDIARIO, FLEXIVEL, GERAL},
+    {"Leg Press 45", INFERIORES, INTERMEDIARIO, ACADEMIA, GERAL},
+    {"Leg Press Horizontal", INFERIORES, INICIANTE, ACADEMIA, GERAL},
+    {"Búlgaro", GLUTEO, AVANCADO, FLEXIVEL, FEMININO},
+    {"Avanço", INFERIORES, INICIANTE, FLEXIVEL, GERAL},
+    {"Panturrilha Máquina", INTERMEDIARIO, ACADEMIA, GERAL},
+    {"Panturrilha em Pé", INICIANTE, FLEXIVEL, GERAL},
+    {"Agachamento Sissy", QUADRICEPS, AVANCADO, FLEXIVEL, GERAL},
+    {"Elevação Pélvica", GLUTEO, PADRAO, FLEXIVEL, FEMININO},
+    {"Cadeira Abdutora", GLUTEO, INICIANTE, ACADEMIA, FEMININO},
+
+
+    {"Stiff", POSTERIORES, PADRAO, FLEXIVEL, GERAL},
+    {"RDL", POSTERIORES, PADRAO, FLEXIVEL, FEMININO},
+
+    {"Supino Reto", PEITO, INICIANTE, ACADEMIA, GERAL},
+    {"Supino Inclinado", PEITO, INTERMEDIARIO, ACADEMIA, GERAL},
+    {"Flexão de Braço", PEITO INICIANTE, CASEIRO, GERAL},
+    {"Crucifixo Máquina", PEITO, INICIANTE, ACADEMIA, GERAL},
+
+    {"Puxada Frontal", DORSAIS, INICIANTE, ACADEMIA, GERAL},
+    {"Remada Curvada", DORSAIS, INTERMEDIARIO, ACADEMIA, GERAL},
+    {"Remada Unilateral", DORSAIS, INICIANTE, FLEXIVEL, GERAL},
+    {"Barra Fixa", DORSAIS, AVANCADO, FLEXIVEL, GERAL},
+
+    {"Desenvolvimento Halteres", OMBROS, INICIANTE, FLEXIVEL, GERAL},
+    {"Elevação Lateral", OMBROS, INICIANTE, FLEXIVEL, GERAL},
+    {"Elevação Frontal", OMBROS, INICIANTE, FLEXIVEL, GERAL},
+
+    {"Rosca Direta", BICEPS, INICIANTE, FLEXIVEL, GERAL},
+    {"Rosca Alternada", BICEPS, INICIANTE, FLEXIVEL, HIGH, GERAL},
+
+    {"Tríceps Corda", TRICEPS, INICIANTE, ACADEMIA, GERAL},
+    {"Tríceps Testa", TRICEPS, INTERMEDIARIO, ACADEMIA, GERAL},
+    {"Mergulho Banco", TRICEPS, INICIANTE, CASA, GERAL},
+
+    {"Abdominal Infra", ABDOMEN, INICIANTE, FLEXIVEL, GERAL},
+    {"Abdômen Máquina", ABDOMEN, INICIANTE, ACADEMIA, GERAL},
+    {"Prancha", ABDOMEN, INICIANTE, FLEXIVEL, GERAL}
+
+};
+
+int TotalDeExercicios = 
 
 void ColetaDeDados(){
 
@@ -23,7 +96,6 @@ void ColetaDeDados(){
     int Nivel, Genero;
     int GrupoMuscular;
     int VolumeTreino;
-    int QuantidadeDeExercicios;
 
     printf("Para montarmos o treino ideal, precisa-se de algumas informações básicas, vamos começar? :)\n");
 
