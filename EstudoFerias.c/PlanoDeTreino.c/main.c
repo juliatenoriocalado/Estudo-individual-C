@@ -25,16 +25,32 @@
 #define MASCULINO 2
 #define GERAL 3
 
-typedef struct Exercicio {
+typedef struct {
 
     char nome[50];
-    int grupomuscular;
-    int nivelMinimo;
+    int quantidade;
+    int nivel;
     int estilo;
     int genero;
     int volume;
 
-} Exercicio ; //Struch padrão precisa de ; no final
+}
+
+Usuario; //Struch padrão precisa de ; no final ///Aqui eu estou nomeando meu Struct com um apelido, chamado Usuario
+Usuario DadosUsuario; //Aqui eu estou criando uma variável global para armazenar todos os dados que esse Struct vai guardar
+
+typedef struct {
+
+    char Nome[50];
+    int GrupoMuscular;
+    int Volume;
+    int NivelMinimo;
+    int Estilo;
+    int Genero;
+
+}
+
+Exercicio;
 
 Exercicio Exercicios [] = {
 
@@ -91,18 +107,12 @@ int TotalDeExercicios =
 
 void ColetaDeDados(){
 
-    char nome[50];
-    int EstiloDeTreino, VolumeSemanal; //Estilo de treino: realizado em casa ou na academia 
-    int Nivel, Genero;
-    int GrupoMuscular;
-    int VolumeTreino;
-
     printf("Para montarmos o treino ideal, precisa-se de algumas informações básicas, vamos começar? :)\n");
 
     printf("Responda objetivamente:\n");
     printf("Como devemos te chamar?\n");
     getchar();
-    fgets(nome, 50, stdin);
+    fgets(DadosUsuario.nome, 50, stdin);
 
     //Scanf não serve para string, então usamos fgets, onde colocamos o nome da variável, o tamanho e o padrão de leitura (teclado = stdin). 
     //Lê a string até o ENTER
@@ -111,7 +121,7 @@ void ColetaDeDados(){
     printf("|1| - Caseiro\n");
     printf("|2| - Academia\n");
     printf("Opção: \n");
-    scanf("%d", &EstiloDeTreino);
+    scanf("%d", &DadosUsuario.estilo);
 
     printf("Você deseja praticar quantas vezes por semana?\n");
     printf("[De 1 a 2x por semana]\n");
@@ -119,30 +129,34 @@ void ColetaDeDados(){
     printf("[De 4 a 5x por semana]\n");
     printf("[De 5 a 6x por semana]\n");
     printf("Opção: \n");
-    scanf("%d", &VolumeSemanal);
+    scanf("%d", &DadosUsuario.quantidade);
 
     printf("Você se considera: \n");
     printf("|1| - Iniciante, tenho nenhum ou pouco conhecimento sobre treinamento.\n");
     printf("|2| - Intermediário, tenho algum conhecimento sobre treinamento.\n");
     printf("|3| - Avançado, possuo conhecimento e familiaridade com treinamento.\n");
-    scanf("%d", &Nivel);
+    scanf("%d", &DadosUsuario.nivel);
 
     printf("Você deseja um treino que se enquadre mais como feminino ou masculino?\n");
     printf("|1| - Feminino\n");
     printf("|2| - Masculino\n");
     printf("Opção: \n");
-    scanf("%d", &Genero);
+    scanf("%d", &DadosUsuario.genero);
     
     printf("Por fim, mas não menos importante...\n");
     printf("Qual estilo de treino você prefere?\n");
     printf("|1| - Low Volume (Mais carga, menos exercícios)\n");
     printf("|2| - High Volume (Menos carga, mais exercícios)\n");
     printf("Opção: \n");
-    scanf("%d", &VolumeTreino);
+    scanf("%d", &DadosUsuario.volume);
 
 }
 
-void VisualizarTreino();
+void GerarTreino(){
+
+    
+
+}
 
 
 int main(){
