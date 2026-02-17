@@ -43,15 +43,13 @@ typedef struct {
 
     char Nome[50];
     int GrupoMuscular;
-    int Volume;
-    int NivelMinimo;
+    int Nivel;
     int Estilo;
     int Genero;
 
 }
 
 Exercicio;
-
 Exercicio Exercicios [] = {
 
     {"Agachamento Livre", INFERIORES, PADRAO, FLEXIVEL, GERAL},
@@ -103,7 +101,7 @@ Exercicio Exercicios [] = {
 
 };
 
-int TotalDeExercicios = 
+int TotalDeExercicios = sizeof(Exercicios)/sizeof(Exercicios[0]);
 
 void ColetaDeDados(){
 
@@ -154,10 +152,11 @@ void ColetaDeDados(){
 
 void GerarTreino(){
 
-    
+    for (i=0; i<TotalDeExercicios; i++){
+        if (DadosUsuario)
+    }
 
 }
-
 
 int main(){
 
