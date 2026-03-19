@@ -17,8 +17,7 @@ int main(){
     }
 
     int resultado = IdentidadeOuNao(N, matriz);
-    printf("%d", resultado);
-    
+    printf()
 }
 
 int IdentidadeOuNao(int N, int matriz[N][N]){
